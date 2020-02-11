@@ -6,18 +6,18 @@ Bound8 := Func("SetNumKeys").Bind(8)
 Bound12 := Func("SetNumKeys").Bind(12)
 
 ; Create the menu and show it:
-Menu Tray, Add
+#Persistent
+Menu Tray, NoStandard
 Menu Tray, Add, Use 4-Key, % Bound4
 Menu Tray, Add, Use 8-Key, % Bound8
 Menu Tray, Add, Use Full, % Bound12
+Menu Tray, Add
+Menu Tray, Add, Pause, PauseScript
+Menu Tray, Add, Exit, ExitScript
+Return
 
-
-; Definition of custom function SetNumKeys:
-SetNumKeys(num, ItemName, MenuName, ItemPos)
-{
-  NumKeys := num
-  MsgBox % "Now Using " . NumKeys . "-key Minimak layout."
-}
+; Make Right and Left Alt keys toggle
+LAlt & RAlt::Suspend
 
 ; Make CapsLock backspace unless holding Shift
 $+CapsLock::CapsLock
@@ -102,4 +102,25 @@ $CapsLock::Backspace
 	$+`;::Send P
 }
 
-;#If ; if you added more hotkeys to this script, putting them below a blank #If makes them non-context-sensitive
+; Definition of custom function SetNumKeys:
+SetNumKeys(num, ItemName, MenuName, ItemPos)
+{
+  NumKeys := num
+  MsgBox % "Now Using " . NumKeys . "-key Minimak layout."
+}
+
+PauseScript:
+	Suspend On
+	Menu Tray, Insert, Pause, Resume, ResumeScript
+	Menu Tray, Delete, Pause
+Return
+
+ResumeScript:
+	Suspend Off
+	Menu Tray, Insert, Resume, Pause, PauseScript
+	Menu Tray, Delete, Resume
+Return
+
+ExitScript:
+ ExitApp
+Return
