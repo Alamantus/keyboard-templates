@@ -8,6 +8,6 @@ This script also replaces Caps Lock with Backspace, which I think is a great ide
 
 ## Using different versions of Minimak
 
-The script has each 4-key iteration labeled in the code, so if you want to just use the 4- or 8-key version, comment out the sections you don't want using `;` at the beginning of the line.
+The script starts with just the 4-key option set, but you can right-click the Tray icon to choose between the 8- and 12-key versions on the fly!
 
-At some point, I'd love to learn how to add options to switch these from the right-click menu, but it seems complicated and I don't have the extra time to learn it right now.
+At some point, I'd love to learn how to position the options to switch to be above the Exit option, but I can't figure it out right now.
