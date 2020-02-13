@@ -133,7 +133,7 @@ $CapsLock::Backspace
 SetFormat(formatName)
 {
   Format := formatName
-  MsgBox % "Now Using " . Format . " Workman layout."
+  MsgBox % "Now Using " . Format . " Workmini layout."
 }
 
 ProgrammerOn:
