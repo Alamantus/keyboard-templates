@@ -1,4 +1,5 @@
 Global NumKeys := 4
+MsgBox % "Now Using 4-key Minimak layout."
 
 ; Bind parameters to the function and returns a BoundFunc object:
 Bound4 := Func("SetNumKeys").Bind(4)
